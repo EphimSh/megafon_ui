@@ -72,4 +72,5 @@ task web_test(type: Test){
     useJUnitPlatform{
         includeTags 'web'
     }
+    systemProperties(System.getProperties())
 }

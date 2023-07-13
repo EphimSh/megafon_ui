@@ -1,6 +1,7 @@
-name: web_test
+name: test
 
 on: [push]
+
 jobs:
   web_test:
     #run location

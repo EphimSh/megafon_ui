@@ -20,7 +20,7 @@ public class TestBase {
         Configuration.pageLoadStrategy = "eager";
 
         Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
+//        Configuration.browserVersion = System.getProperty("browserVersion", "99.0");
         Configuration.browserSize = System.getProperty("browserSize", "1980x1080");
 //        Configuration.baseUrl = System.getProperty("baseUrl", "https://spb.megafon.ru");
 

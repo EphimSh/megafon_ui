@@ -66,12 +66,13 @@ tasks.withType(Test).configureEach {
 }
 test {
     useJUnitPlatform()
-    systemProperties(System.getProperties())
+
 }
 
 task web_test(type: Test){
     useJUnitPlatform{
         includeTags 'web'
     }
+    systemProperties(System.getProperties())
     systemProperty("test.stacktrace", true)
 }

@@ -73,4 +73,5 @@ task web_test(type: Test){
     useJUnitPlatform{
         includeTags 'web'
     }
+    systemProperty("test.stacktrace", true)
 }

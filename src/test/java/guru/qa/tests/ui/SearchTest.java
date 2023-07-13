@@ -37,10 +37,10 @@ public class SearchTest extends TestBase {
         step("Нажать на кнопку поиск", () -> {
             $("[class*=search-trigger]").click();
         });
-        step("Ввести в поле поиска: {0}", () ->{
+        step("Ввести в поле поиска: " + searchItem, () ->{
             $("[data-testid=ChSearch-input]").setValue(searchItem).submit();
         });
-        step("Результат поиска выдает результат: {0}", ()->{
+        step("Результат поиска содержит текст: " + searchItem, ()->{
             $("[class*=search-page-results]").shouldHave(text(searchItem));
         });
     }

@@ -1,8 +1,9 @@
-package guru.qa;
+package guru.qa.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import guru.qa.config.WebConfig;
 import guru.qa.helper.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
@@ -14,15 +15,17 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.util.Map;
 
 public class TestBase {
+
+    static WebConfig config = ConfigFactory.create(WebConfig.class, System.getProperties());
+
     @BeforeAll
     static void init() {
-//        CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
-        Configuration.pageLoadStrategy = "eager";
 
-        Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.browserVersion = System.getProperty("browserVersion", "99.0");
-        Configuration.browserSize = System.getProperty("browserSize", "1980x1080");
-        Configuration.baseUrl = System.getProperty("baseUrl", "https://spb.megafon.ru");
+        Configuration.pageLoadStrategy = config.getPageLoadStrategy();
+        Configuration.browser = config.getBrowser();
+        Configuration.browserVersion = config.getBrowserVersion();
+        Configuration.browserSize = config.getBrowserSize();
+        Configuration.baseUrl = config.getBaseUrl();
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.of(

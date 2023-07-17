@@ -1,6 +1,6 @@
 package guru.qa.tests.ui;
 
-import guru.qa.TestBase;
+import guru.qa.tests.TestBase;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
